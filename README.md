@@ -1,4 +1,4 @@
-## A project to learn express.js with Objection.js and Know (MVC)
+## A project to learn express.js with Objection.js and Knex (MVC)
 
 This project is built with express.js 4, Objection.js and Knex
 
