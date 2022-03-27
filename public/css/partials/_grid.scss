@@ -1,0 +1,144 @@
+$ie11-compatible: true; // $ie11-compatible adds a max-width to fix a flexbox bug on ie11.
+
+$gutter: .8rem;
+$number-of-columns: 12;
+
+$size-xs: 20em;
+$size-sm: 34em;
+$size-md-container: 50em;
+$size-md: 61em;
+$size-lg-container: 57em;
+$size-lg: 70em;
+$size-xl-container: 72em;
+$size-xl: 78em;
+
+//GRID FOUNDATION START
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $gutter;
+  padding-right: $gutter;
+}
+
+.row {
+  margin-left: -$gutter;
+  margin-right: -$gutter;
+}
+
+[class*="col-"] {
+  padding-left: $gutter;
+  padding-right: $gutter;
+}
+
+@media (min-width: $size-md) {
+  .container {
+    width: $size-md-container;
+  }
+}
+
+@media (min-width: $size-lg) {
+  .container {
+    width: $size-lg-container;
+  }
+}
+
+@media (min-width: $size-xl) {
+  .container {
+    width: $size-xl-container;
+  }
+}
+
+@function col($cols) {
+  @return percentage(1/$number-of-columns) * $cols;
+}
+
+@mixin columns-flex($cols) {
+  flex: 0 0 col($cols);
+  @if $ie11-compatible {
+    max-width: col($cols);
+  }
+}
+
+//GRID SPECIFIC
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@for $i from $number-of-columns through 1 {
+  .col-xs-#{$i} {
+    @include columns-flex($i);
+  }
+}
+
+@media (min-width: $size-sm) {
+  @for $i from $number-of-columns through 1 {
+    .col-sm-#{$i} {
+      @include columns-flex($i);
+    }
+  }
+}
+
+@media (min-width: $size-md) {
+  @for $i from $number-of-columns through 1 {
+    .col-md-#{$i} {
+      @include columns-flex($i);
+    }
+  }
+}
+
+@media (min-width: $size-lg) {
+  @for $i from $number-of-columns through 1 {
+    .col-lg-#{$i} {
+      @include columns-flex($i);
+    }
+  }
+}
+
+//OFFSETS
+@for $i from $number-of-columns through 1 {
+  .col-xs-offset-#{$i} {
+    margin-left: col($i);
+  }
+}
+
+@media (min-width: $size-sm) {
+  @for $i from $number-of-columns through 1 {
+    .col-sm-offset-#{$i} {
+      margin-left: col($i);
+    }
+  }
+}
+
+@media (min-width: $size-md) {
+  @for $i from $number-of-columns through 1 {
+    .col-md-offset-#{$i} {
+      margin-left: col($i);
+    }
+  }
+}
+
+@media (min-width: $size-lg) {
+  @for $i from $number-of-columns through 1 {
+    .col-lg-offset-#{$i} {
+      margin-left: col($i);
+    }
+  }
+}
+
+.col-auto {
+  flex: 1;
+}
+
+
+
+

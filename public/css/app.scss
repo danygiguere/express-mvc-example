@@ -1,0 +1,55 @@
+@import 'partials/reset';
+@import 'partials/theme';
+@import 'partials/grid';
+@import 'partials/utilities';
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+li {
+  list-style: none;
+}
+a:active,
+a:hover {
+  outline-width: 0;
+  color: #252a2e;
+}
+a {
+  text-decoration: none;
+  color: #252A2E;
+}
+
+html, body {
+  background-color: #fff;
+  color: #636b6f;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 200;
+  height: 100vh;
+  margin: 0;
+}
+
+section {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+header {
+  background-color: #f3f3f3;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  a {
+    padding-left: .5rem;
+    padding-right: .5rem;
+  }
+}
+
+footer {
+  background-color: #f3f3f3;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+h1, h1.title, title {
+  font-size: 84px;
+}
